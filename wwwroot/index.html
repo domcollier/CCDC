@@ -1,0 +1,91 @@
+﻿<!DOCTYPE html>
+<html>
+<head>
+    <meta charset="UTF-8">
+    <title>My Wednesday Evening ;-)</title>
+    <link rel="icon" type="image/x-icon" href="img/dc.png">
+    <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
+    <link rel="stylesheet" href="https://fonts.googleapis.com/css?family=Roboto">
+    <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.5.0/css/bootstrap.min.css">
+    <link rel="stylesheet" href="https://fonts.googleapis.com/icon?family=Material+Icons">
+    <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/font-awesome/4.7.0/css/font-awesome.min.css">
+    <script src="https://code.jquery.com/jquery-3.6.0.min.js"></script>
+    <script src="https://cdn.jsdelivr.net/npm/popper.js@1.16.0/dist/umd/popper.min.js"></script>
+    <script src="https://stackpath.bootstrapcdn.com/bootstrap/4.5.0/js/bootstrap.min.js"></script>
+    <!-- For the delete icon instead of ugly button. I normally use alt on all relevant images for WCAG -->
+    <style>
+        .action_button {
+            width: 40px;
+            height: 40px;
+        }
+    </style>
+</head>
+<body style="background-image: url(img/background.jpg); background-size:cover;">
+    <div class="container-fluid">
+        <h1> Palindrome Test</h1>
+        <h5><img src="img/dc.png" alt="DC" height="20px" />  Dom Collier </h5>
+        <div class="form-group">
+            <form action="javascript:void(0);" method="POST" onsubmit="addItem()">
+                <input type="text" id="add-entry" class="form-control" placeholder="Write your palindrome here">
+                <p> </p>
+                <input class="btn btn-secondary btn-block" style="max-width:400px;" type="submit" value="Press ENTER ... or Click here to Test">
+            </form>
+        </div>
+
+        <p id="counter"> </p>
+
+        <table class="table table-light table-striped table-hover">
+            <thead class="thead-dark">
+                <tr>
+                    <th> ID</th>
+                    <th> Entry</th>
+                    <th> Remove</th>
+                </tr>
+            </thead>
+            <tbody id="pals"> </tbody>
+        </table>
+
+    </div>
+    <h5>  <a href="#QuestionsModal" class="trigger-btn" data-toggle="modal"><img src="img/questions.gif" alt="click here for questions " height="120px" /></a> </h5>
+    <!-- Pure HTML Modal, I would normally use sweetalert but unsure if you need to see UX so keeping it simple -->
+    <div id="QuestionsModal" class="modal fade">
+        <div class="modal-dialog modal-confirm">
+            <div class="modal-content">
+                <div class="modal-header">
+                    <h4 class="modal-title w-100"> Here are some notes from the developer!</h4>
+                </div>
+                <div class="modal-body">
+                    <p class="text-center"> I made a few <b>assumptions from the brief.</b></p>
+                    <p class="text-center"> The main one being - this is an exercise that should only take a couple of hours, so I delivered something short and simple.</p>
+                    <p class="text-center"> I created an in-memory db as this is not going to be used or integrated anywhere, if you actually want a localDB structure I can of course do this instead as DB design is oneof my strengths. Again, just keeping it time-effective and simple.</p>
+                    <p class="text-center"> I hope my assumptions were correct and I haven't missed anything, if you need more, or have trouble with the file please give me a call on 0410811900 anytime.</p>
+                    <div class="modal-footer">
+                        <button class="btn btn-danger btn-block" data-dismiss="modal"> Got it!</button>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+        <!-- Pure HTML Modal, I would normally use sweetalert but unsure if you need to see UX so keeping it simple -->
+    <div id="myModal" class="modal fade">
+            <div class="modal-dialog modal-confirm">
+                <div class="modal-content">
+                    <div class="modal-header">
+                        <h4 class="modal-title w-100"> Sorry!</h4>
+                    </div>
+                    <div class="modal-body">
+                        <p class="text-center"> This is not a palindrome. Please try again.</p>
+                    </div>
+                    <div class="modal-footer">
+                        <button class="btn btn-danger btn-block" data-dismiss="modal"> OK</button>
+                    </div>
+                </div>
+            </div>
+    </div>
+        <script src="js/site.js" asp-append-version="true"></script>
+        <script type="text/javascript">
+            getItems();
+        </script>
+
+</body>
+</html>
